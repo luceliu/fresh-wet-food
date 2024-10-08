@@ -41,7 +41,7 @@ const WelcomePage = () => {
         <img
           src="https://d2zp5xs5cp8zlg.cloudfront.net/image-53908-340.jpg"
           alt="Cat mugshot"
-          className="rounded-full h-12 w-12 object-cover absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 md:max-w-[250px] md:static md:h-full md:w-auto md:rounded-none md:left-0 md:translate-x-0 md:translate-y-0"
+          className="rounded-full h-12 w-12 border border-slate-300 object-cover absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 md:max-w-[250px] md:static md:h-full md:w-auto md:rounded-none md:left-0 md:translate-x-0 md:translate-y-0"
         />
         <div className="px-2 py-8 md:flex md:flex-col md:justify-center md:ml-4">
           <h1 className="text-lg text-center font-bold text-green-600 md:text-left md:w-5/6">
