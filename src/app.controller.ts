@@ -1,5 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
+import { NextDeliveryMessage } from 'common/types';
 
 @Controller()
 export class AppController {
@@ -11,7 +12,7 @@ export class AppController {
   }
 
   @Get('comms/your-next-delivery/:id')
-  getNextDelivery(@Param() params: any): any {
+  getNextDelivery(@Param() params: { id: string }): NextDeliveryMessage {
     return this.appService.getNextDeliveryMessage(params.id);
   }
 }
