@@ -1,8 +1,10 @@
 # KatKin's Full-stack Coding Test
 
-![image](https://github.com/user-attachments/assets/2a380e6f-bad1-43dd-aa73-0fd785ce3933)
+![image](https://github.com/user-attachments/assets/1e8de978-acfd-4fba-8d66-8f2bd2988f75)
 
-![image](https://github.com/user-attachments/assets/8a9b9e21-605c-4c59-9d3d-c26f295b7e86)
+
+![image](https://github.com/user-attachments/assets/c073758c-c006-461b-90ef-ab765d1f971e)
+
 
 
 ## BEFORE YOU BEGIN
