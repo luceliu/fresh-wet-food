@@ -1,5 +1,10 @@
 # KatKin's Full-stack Coding Test
 
+![image](https://github.com/user-attachments/assets/2a380e6f-bad1-43dd-aa73-0fd785ce3933)
+
+![image](https://github.com/user-attachments/assets/8a9b9e21-605c-4c59-9d3d-c26f295b7e86)
+
+
 ## BEFORE YOU BEGIN
 
 Please take your time to thoroughly read through this README. If anything is unclear or you think there is a mistake somewhere, please let us know via email. We recommend you spend around an hour or so on this test. Submission instructions are at the bottom of this README.
