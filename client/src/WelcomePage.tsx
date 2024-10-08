@@ -51,7 +51,7 @@ const WelcomePage = () => {
             {deliveryMessage.message}
           </p>
           <p className="text-sm text-center text-slate-600 font-bold md:text-left md:w-5/6">
-            Total price: £{deliveryMessage.totalPrice}
+            Total price: £{deliveryMessage.totalPrice.toFixed(2)}
           </p>
           <div className="flex justify-center space-x-6 mt-4 md:justify-start">
             <button className="bg-green-600 text-xs text-white uppercase rounded w-36 px-6 py-1">
