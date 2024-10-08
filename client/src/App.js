@@ -4,11 +4,13 @@ import WelcomePage from './WelcomePage.tsx';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/welcome" element={<WelcomePage />} />
-      </Routes>
-    </Router>
+    <div className="h-screen w-full bg-gray-100 ">
+      <Router>
+        <Routes>
+          <Route path="/welcome" element={<WelcomePage />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
