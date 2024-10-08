@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 type NextDeliveryMessage = {
+  // TODO: this is duplicate code, extract this into a common types file
   title: string;
   message: string;
   totalPrice: number;
@@ -9,8 +10,7 @@ type NextDeliveryMessage = {
 };
 
 const WelcomePage = () => {
-  const { id } = useParams(); // Extract userId from the router path
-  console.log(id);
+  const { id } = useParams();
   const [deliveryMessage, setDeliveryMessage] =
     useState<NextDeliveryMessage | null>(null);
   const [loading, setLoading] = useState(true);
@@ -28,7 +28,7 @@ const WelcomePage = () => {
         setDeliveryMessage(data);
       } catch (err: unknown) {
         if (err instanceof Error) {
-          console.log(err.message);
+          console.log(err.message); // TODO: actually handle this for the user
         } else {
           console.log('unknown error occurred');
         }

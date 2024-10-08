@@ -62,8 +62,8 @@ export class AppService {
   getNextDeliveryMessage(userId: string): NextDeliveryMessage {
     const filePath = join(__dirname, '..', '..', 'data.json');
     const fileContent = readFileSync(filePath, 'utf-8');
-    const myJson = JSON.parse(fileContent);
-    const user = myJson.find((u: User) => u.id === userId);
+    const userDataJson = JSON.parse(fileContent);
+    const user = userDataJson.find((u: User) => u.id === userId);
 
     const activeSubscriptionCats = user.cats.filter(
       (cat: Cat) => cat.subscriptionActive,
