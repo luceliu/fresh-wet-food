@@ -7,7 +7,8 @@ function App() {
     <div className="h-screen w-full bg-gray-100 ">
       <Router>
         <Routes>
-          <Route path="/welcome" element={<WelcomePage />} />
+          <Route path="/" element={<div />} />
+          <Route path="/welcome/:id" element={<WelcomePage />} />
         </Routes>
       </Router>
     </div>

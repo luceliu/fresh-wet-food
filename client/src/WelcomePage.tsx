@@ -1,6 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+type NextDeliveryMessage = {
+  title: string;
+  message: string;
+  totalPrice: number;
+  freeGift: boolean;
+};
 
 const WelcomePage = () => {
+  const { id } = useParams(); // Extract userId from the router path
+  console.log(id);
+  const [deliveryMessage, setDeliveryMessage] =
+    useState<NextDeliveryMessage | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDeliveryMessage = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/comms/your-next-delivery/${id}`,
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setDeliveryMessage(data);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          console.log(err.message);
+        } else {
+          console.log('unknown error occurred');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDeliveryMessage();
+  }, [id]);
+
+  if (loading || !deliveryMessage) return <div>Loading...</div>;
+
   return (
     <div className="flex justify-center">
       <div className="bg-white border border-slate-300 rounded w-[90%] my-8 relative md:flex md:w-5/6 lg:max-w-[854px]">
@@ -10,14 +51,13 @@ const WelcomePage = () => {
         />
         <div className="px-2 py-8 md:flex md:flex-col md:justify-center md:ml-4">
           <h1 className="text-lg text-center font-bold text-green-600 md:text-left md:w-5/6">
-            Your next delivery for Dorian and Ocie
+            {deliveryMessage.title}
           </h1>
           <p className="text-xs text-center text-slate-600 my-2 md:text-left md:w-5/6">
-            Hey Kayleigh! In two days' time, we'll be charging you for your next
-            order for Dorian and Ocie's fresh food.
+            {deliveryMessage.message}
           </p>
           <p className="text-sm text-center text-slate-600 font-bold md:text-left md:w-5/6">
-            Total price: $134.00
+            Total price: £{deliveryMessage.totalPrice}
           </p>
           <div className="flex justify-center space-x-6 mt-4 md:justify-start">
             <button className="bg-green-600 text-xs text-white uppercase rounded w-36 px-6 py-1">
@@ -27,11 +67,13 @@ const WelcomePage = () => {
               Edit Delivery
             </button>
           </div>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-pink-300 border border-pink-500 w-24 flex justify-center -rotate-6 md:top-0 md:right-0 md:bottom-auto md:left-auto md:rotate-6 md:translate-x-1/2 md:-translate-y-1/2">
-            <span className="text-sm font-bold uppercase text-pink-900">
-              Free Gift
-            </span>
-          </div>
+          {deliveryMessage.freeGift && (
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-pink-300 border border-pink-500 w-24 flex justify-center -rotate-6 md:top-0 md:right-0 md:bottom-auto md:left-auto md:rotate-6 md:translate-x-1/2 md:-translate-y-1/2">
+              <span className="text-sm font-bold uppercase text-pink-900">
+                Free Gift
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ export class AppService {
   }
 
   getNextDeliveryMessage(userId: string): NextDeliveryMessage {
-    const filePath = join(__dirname, '..', 'data.json');
+    const filePath = join(__dirname, '..', '..', 'data.json');
     const fileContent = readFileSync(filePath, 'utf-8');
     const myJson = JSON.parse(fileContent);
     const user = myJson.find((u: User) => u.id === userId);
