@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-type NextDeliveryMessage = {
-  // TODO: this is duplicate code, extract this into a common types file
-  title: string;
-  message: string;
-  totalPrice: number;
-  freeGift: boolean;
-};
+import { NextDeliveryMessage } from '../../common/types';
 
 const WelcomePage = () => {
   const { id } = useParams();
