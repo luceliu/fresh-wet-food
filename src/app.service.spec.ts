@@ -48,6 +48,32 @@ describe('ItemsService', () => {
         },
       ],
     },
+    {
+      id: '76d6eb8d-5c2e-49f7-b798-d69700dda4c9',
+      firstName: 'Dolores',
+      lastName: 'Hartmann',
+      email: 'Dolores_Hartmann10@hotmail.com',
+      cats: [
+        {
+          name: 'Destiny',
+          subscriptionActive: true,
+          breed: 'American Shorthair',
+          pouchSize: 'F',
+        },
+        {
+          name: 'Tiffany',
+          subscriptionActive: true,
+          breed: 'Minskin',
+          pouchSize: 'B',
+        },
+        {
+          name: 'Alexandre',
+          subscriptionActive: true,
+          breed: 'Somali',
+          pouchSize: 'A',
+        },
+      ],
+    },
   ];
 
   beforeEach(async () => {
@@ -86,6 +112,22 @@ describe('ItemsService', () => {
       message:
         "Hey Dolores! In two days' time, we'll be charging you for your next order for Destiny and Alexandre's fresh food.",
       totalPrice: 126.75,
+      freeGift: true,
+    });
+  });
+
+  it('should return the correct delivery message for the given user with three cats with active subscriptions', () => {
+    (fs.readFileSync as jest.Mock).mockReturnValue(
+      JSON.stringify(mockJsonData),
+    );
+    const deliveryMessage = appService.getNextDeliveryMessage(
+      '76d6eb8d-5c2e-49f7-b798-d69700dda4c9',
+    );
+    expect(deliveryMessage).toEqual({
+      title: 'Your next delivery for Destiny, Tiffany and Alexandre',
+      message:
+        "Hey Dolores! In two days' time, we'll be charging you for your next order for Destiny, Tiffany and Alexandre's fresh food.",
+      totalPrice: 186.25,
       freeGift: true,
     });
   });
