@@ -1,28 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-
-type NextDeliveryMessage = {
-  title: string;
-  message: string;
-  totalPrice: number;
-  freeGift: boolean;
-};
-
-type User = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  cats: Cat[];
-};
-
-type Cat = {
-  name: string;
-  subscriptionActive: boolean;
-  breed: string;
-  pouchSize: 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
-};
+import { NextDeliveryMessage, User, Cat } from '../common/types';
 
 const formatCatNameList = (names: string[]) => {
   if (names.length === 0) {

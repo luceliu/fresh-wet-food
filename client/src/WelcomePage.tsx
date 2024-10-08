@@ -40,6 +40,7 @@ const WelcomePage = () => {
       <div className="bg-white border border-slate-300 rounded w-[90%] my-8 relative md:flex md:w-5/6 lg:max-w-[854px]">
         <img
           src="https://d2zp5xs5cp8zlg.cloudfront.net/image-53908-340.jpg"
+          alt="Cat mugshot"
           className="rounded-full h-12 w-12 object-cover absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 md:max-w-[250px] md:static md:h-full md:w-auto md:rounded-none md:left-0 md:translate-x-0 md:translate-y-0"
         />
         <div className="px-2 py-8 md:flex md:flex-col md:justify-center md:ml-4">
